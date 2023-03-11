@@ -8,7 +8,7 @@ public class Bins {
     public Bins(int lower, int higher) {
         this.higher = higher;
         this.lower = lower;
-        this.bin = new int[higher-lower];
+        this.bin = new int[higher-lower+1];
     }
 
 

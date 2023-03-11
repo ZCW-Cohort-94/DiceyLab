@@ -3,17 +3,18 @@ import java.util.Random;
 public class Dice {
 
     private int diceNum;
+    Random rand;
 
 
     public Dice(int i) {
         this.diceNum = i;
+        this.rand = new Random(1);
     }
 
     public int tossAndSum() {
         int total = 0;
-        Random rand = new Random(1);
         for(int i = 0; i<getDiceNum(); i++){
-            total+=rand.nextInt(5)+1;
+            total+=rand.nextInt(6)+1;
         }
         return total;
     }

@@ -14,7 +14,7 @@ public class DiceTest {
 
     @Test
     public void testTossAndSum(){
-        int expected = 5; //seed random and check later
+        int expected = 9; //seed is same for checking purposes
         Dice die = new Dice(2);
 
         int actual = die.tossAndSum();
