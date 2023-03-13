@@ -13,8 +13,8 @@ public class Dice {
     }
 
     public static int tossAndSum(int num) {
-        double roll = (Math.random() * (6 - num) + num);
-        int rollInt = (int)Math.round(roll) * num;
+        double roll = (Math.random() * (6 - num) + num) * num;
+        int rollInt = (int)Math.round(roll);
 //        System.out.println(rollInt);
         return rollInt;
         //(Math.random() * (upper - lower)) + lower;
