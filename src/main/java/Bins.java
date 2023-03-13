@@ -24,7 +24,7 @@ public class Bins {
     }
     public static void printMapResults() {
         for(Map.Entry m:bins.entrySet()){
-            System.out.println(m.getKey()+" "+m.getValue());
+            System.out.println(m.getKey()+": "+m.getValue());
         }
     }
 }

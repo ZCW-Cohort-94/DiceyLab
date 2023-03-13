@@ -31,7 +31,7 @@ public class Simulation {
     }
 
     public static void printResults() {
-        //System.out.println("Total: " + Bins.runningTotal);
+        System.out.println("***\nSimulation of " + numOfDice + " dice tossed for " + numOfThrows + " times.\n***");
         Bins.printMapResults();
     }
 
