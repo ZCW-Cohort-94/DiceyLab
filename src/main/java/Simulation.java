@@ -6,6 +6,7 @@ public class Simulation {
     private Integer numberOfDice;
     private Integer numberOfRolls;
     private Integer numberOfSides;
+    int[] results = new int[11];
 
     Scanner in = new Scanner(System.in);
 
@@ -14,9 +15,10 @@ public class Simulation {
         sim.Roll(sim.numberOfRolls);
     }//end of main
 
+
     public Simulation() {
         numberOfDice = 2;
-        numberOfRolls = 1000;
+        numberOfRolls = 1000000;
         numberOfSides = 6;
     }
 
@@ -49,19 +51,35 @@ public class Simulation {
     }
 
     public void Roll(Integer numberOfRolls) {
-        Integer sum = 0;
+        int sum = 0;
         Random rand = new Random();
         Dice dice = new Dice(numberOfDice, numberOfSides);
-        StringBuilder sb = new StringBuilder();
+        Bins bins = new Bins();
         for(int i = 0; i<numberOfRolls; i++){
             sum = 0;
             for(int j = 0; j<dice.number; j++){
                 sum += rand.nextInt(dice.sides)+1;
             }
             //store sum from number of rolls here
-            System.out.println(sum);
+            results = bins.storingNumbers(sum);
+
         }
-    }
+        generateDataMap(results);
+    }//end of roll
 
+    public void generateDataMap(int[] results) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("***\nSimulation of " + numberOfDice + " dice thrown "+ numberOfRolls + " times.\n***");
+        for (int i = 0; i < bins.bin.length; i++) {
+            int value = results[i];
+            float percent = (float) value/numberOfRolls;
+            int numberOfStars = (int) (percent*100);
+            sb.append("\n" + (i+2) + ":" + "  " + value + ": %" + percent + " ");
+            for(int j = 0; j<numberOfStars; j++) {
+                sb.append("*");
+            }
+            System.out.println(sb);
+        }
 
-}
+    }//end of generateDataMap
+}// end of class

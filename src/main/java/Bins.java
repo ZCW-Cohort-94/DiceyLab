@@ -1,5 +1,10 @@
-import java.util.HashMap;
 public class Bins {
-    HashMap<String, Integer> map = new HashMap<>();
+    int[] bin = new int[11];
+    public int[] storingNumbers(Integer number){
+        int num = number-2;
+        bin[num]++;
+        return bin;
+    }
 }
+
 
