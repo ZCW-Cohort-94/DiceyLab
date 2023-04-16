@@ -1,5 +1,4 @@
 public class Dice {
-
     public final int dice;
 
     public Dice (int dice) {
@@ -13,10 +12,6 @@ public class Dice {
     }
 
     public static int tossAndSum(int num) {
-        double roll = (Math.random() * (6 - 1) + 1) * num;
-        int rollInt = (int)Math.round(roll);
-//        System.out.println(rollInt);
-        return rollInt;
-        //(Math.random() * (upper - lower)) + lower;
+        return (int) Math.round((Math.random() * (6 - 1) + 1) * num);
     }
 }

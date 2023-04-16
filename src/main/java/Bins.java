@@ -1,7 +1,9 @@
+import java.text.DecimalFormat;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Bins {
+    private static DecimalFormat df = new DecimalFormat("0.00");
     public static int runningTotal = 0;
     public static LinkedHashMap<Integer, Integer> bins;
     public Bins(LinkedHashMap<Integer, Integer> bins) {
@@ -24,7 +26,16 @@ public class Bins {
     }
     public static void printMapResults() {
         for(Map.Entry m:bins.entrySet()){
-            System.out.println(m.getKey()+": "+m.getValue());
+            System.out.println(m.getKey() +
+            " :     " +
+            m.getValue() +
+            ":     " +
+            String.format("%.2f", findPercentage(Integer.parseInt(m.getValue().toString())))
+            );
         }
+    }
+
+    public static double findPercentage(int rollOccurance) {
+        return (double) rollOccurance / Simulation.numOfThrows;
     }
 }
